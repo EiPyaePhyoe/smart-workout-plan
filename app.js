@@ -30,7 +30,9 @@ app.use(
     saveUninitialized:true,
   })
 );
-mongoose.connect("mongodb://127.0.0.1:27017/smartworkout");
+//local
+// mongoose.connect("mongodb://127.0.0.1:27017/smartworkout");
+mongoose.connect("mongodb+srv://eipyae:eipyae123@workout.zfyzwtn.mongodb.net/?retryWrites=true&w=majority");
 var db= mongoose.connection;
 db.on(
   "error",
