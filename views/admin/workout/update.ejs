@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="/javascripts/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.115.4">
+    <title>Admin Workout Update</title>
+
+   <% include ../../partialA/head %>
+  </head>
+  <body>
+  <% include ../../partialA/header %>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+   <% include ../../partialA/sidebar %>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dashboard</h1>
+        
+      </div>
+            
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <body>
+                <h1>Workout Update</h1>
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-3"></div>
+                  <div class="col-sm-12 col-md-12 col-lg-6 border border-1 p-3 rounded border-primary mt-5">
+                    <div class="form-signin w-100 m-auto">
+                      <h1 class="h3 mb-3 fw-normal">
+                        Workout Add
+                      </h1>
+                      <form action="/admin/workoutupdate" method="post" enctype="multipart/form-data">
+                        <!-- <h1 class="h3 mb-3 fw-normal"><i class="bi bi-calendar-heart-fill" 
+                          style="font-size: 35px; color: blueviolet"></i> 
+                         Workout Add</h1> -->
+                         <div class="form-floating my-2">
+                          <input type="hidden" name="id" value="<%= workout._id %>">
+                          <input type="title" class="form-control" id="title" placeholder="title" name="title" value="<%= workout.title %>">
+                          <label for="title">Title</label>
+                        </div>
+                        <div class="form-floating my-2">
+                          <input type="type" class="form-control" id="type" placeholder="type" value="<%= workout.type %>" name="type">
+                          <label for="type">Type</label>
+                        </div>
+                        <div class="form-floating my-2">
+                        <select name="category" id="category" class="form-select">
+                          <option value="gain" <%= workout.category == "gain" ? "selected":"" %>>Weight Gain</option>
+                          <option value="lose" <%= workout.category == "lose" ? "selected":"" %>>Weight Lose</option>
+                          <option value="fitness" <%= workout.category == "fitness" ? "selected":"" %>>Fitness</option>
+                      </select>
+                      <label for="category">Category</label>
+                    </div>
+                     
+                      <div class="input-group my-2">
+                        <input type="file" class="form-control" id="cover" placeholder="cover" value="<%= workout._id %>" name="cover">
+                        <label for="cover" class="input-group-text" accept="image/*">Cover</label>
+                      </div>
+                      <div class="form-floating my-2">
+                        <textarea class="form-control" id="description" placeholder="description" name="description" style="height: 100px"><%= workout.description %>
+                        </textarea>
+                        <label for="type">Description</label>
+                      </div>
+                      <div class="d-grid">
+                      <input type="submit"  class="btn btn-primary"  value="Submit"/>
+                    </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-12 col-lg-3"></div>
+                </div>
+          
+            </body>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

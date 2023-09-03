@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Page</title>
+  
+<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+<link href="/stylesheets/bootstrap-icons.min.css" rel="stylesheet">
+<script src="/javascripts/bootstrap.bundle.min.js"></script>
+<script src="/javascripts/color-modes.js"></script>
+</head>
+<body>
+  <% include ./partial/navbar %>
+  <main>
+    <div class="container mt-5">
+    <div class="row">
+        <% for(var i=0; i<workouts.length; i++){%>
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="/images/workout.jpeg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= workouts[i].title %></h5>
+                     <p class="fs-6 lh-sm">
+                        Type :
+                        <span class="fs-6 fw-light"><%= workouts[i].type %></span>
+                     </p>
+                    <p class="fs-6 lh-sm">
+                        Category :
+                        <span class="fs-6 fw-light"><%= workouts[i].category %></span>
+                    </p>
+                    <p class="fs-6 lh-sm">
+                        Description :
+                        <span class="fs-6 fw-light"><%= workouts[i].description %></span>
+                    </p>
+                    <a href="/workout/<%= workouts[i]._id %>" class="btn btn-outline-primary rounded-pill">View Challenge</a>
+                  </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <%}%>
+    </div>
+  </div>
+</div>
+  </main>
+  <% include ./partial/footer %>
+</body>
+</html>
